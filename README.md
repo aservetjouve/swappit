@@ -1,4 +1,3 @@
-
 #  Swappit
 
  
@@ -70,10 +69,10 @@ Swappit is a application that allows you to swapp pieces of decoration or furnit
 
 - Welcome
 > The first page the user will see if not logged in
-- SignupPage 
-- LoginPage
+- Signup 
+- Login
 - NavBar
-- FooterBar
+- Footer
 - AddItem
 - ItemCard
 - ContactCard
@@ -95,9 +94,9 @@ Swappit is a application that allows you to swapp pieces of decoration or furnit
 
 
 
-# Server / Back-End<br>
+# Server | Back-End<br>
 
-You can find the server repository [here](https://github.com/404).
+You can find the server repository [here](https://github.com/aservetjouve/swappit__server).
 
 ## Models<br>
 
@@ -139,12 +138,12 @@ You will find my wireframes and the prototype [here!](https://github.com/404)
 Here are the links to the :
 - [Client repository](https://github.com/aservetjouve/swappit)
 
-- [Server repository](https://github.com/404)
+- [Server repository](https://github.com/aservetjouve/swappit__server)
 
 - [Deployed App](https://github.com/404)
 
 ### Slides
 
-You can check the slides for my présentation [here!](https://github.com/404)
+You can check the slides for my presentation [here!](https://github.com/404)
 
 > Thank you for checking my project ! 
