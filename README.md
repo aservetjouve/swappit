@@ -117,7 +117,20 @@ Item model
   itemName: {type: String, required: true},
   itemType: {type: String, required: true},
   itemAspect: {type: String, required: true},
+  agreedToSwappWith: {type: String, required: true},
   owner: {type: Schema.Types.ObjectId,ref:'User'}
+}
+```
+
+Transaction model
+> Register if the users want to swapp 
+```javascript
+{
+  userA: {type: Schema.Types.ObjectId,ref:'User'},
+  userB: {type: Schema.Types.ObjectId,ref:'User'},
+  itemUserA: {type: Schema.Types.ObjectId,ref:'Item'},
+  itemUserB: {type: Schema.Types.ObjectId,ref:'Item'},
+  oneUserAgreed: {type: Bolean}
 }
 ```
 ## Back End Routes
