@@ -1,44 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { withAuth } from "../lib/Auth";
 
-export default function Nav(props) {
-	return (
-		<ul className="nav ">
-			{props.isLoggedIn ? (
-				<>
-					<li className="nav-item">
-						<Link className="nav-link active myContainer" to="/">
-							Home
-						</Link>
-					</li>
-					<li className="nav-item">
+class Nav extends React.Component {
+	render() {
+		const {logout, isLoggedIn } = this.props;
+
+		return (
+			<nav class="navbar navbar-light">
+				{isLoggedIn ? (
+					<>
+						<Link to={"/profile"} class="btn" type="button">
+						<i class="fas fa-home">Profile</i>
+					</Link>
+					<Link to={"/home"} class="btn" type="button">
+						<i class="fas fa-home">Home</i>
+					</Link>
+					<Link to={"/connections"} class="btn" type="button">
+						<i class="fas fa-home">Connections</i>
+					</Link>
+						<i
+							class="fas fa-sign-out-alt btn btn-outline-danger"
+							type="button"
+							onClick={logout}
+						>Log out</i>
+					</>
+				) : (
+					<>
 						<Link
-							className="nav-link active myContainer"
-							to="/banane"
+							to="/signin"
+							class="btn"
+							type="button"
 						>
-							BANANE
+							{" "}
+							<i class="fas fa-sign-in-alt">Sign In</i>
 						</Link>
-					</li>
-					<li className="nav-item">
-						<button className="nav-link" onClick={props.onLogout}>
-							Logout
-						</button>
-					</li>
-				</>
-			) : (
-				<>
-					<li className="nav-item">
-						<Link className="nav-link" to="/signin">
-							Sign in
+						<br />
+						<Link
+							to="/signup"
+							class="btn"
+							type="button"
+						>
+							{" "}
+							<i class="fas fa-user-plus"> Sign Up</i>
 						</Link>
-					</li>
-					<li className="nav-item">
-						<Link className="nav-link" to="/signup">
-							Sign up
-						</Link>
-					</li>
-				</>
-			)}
-		</ul>
-	);
+					</>
+				)}
+			</nav>
+		);
+	}
 }
+
+export default withAuth(Nav);
