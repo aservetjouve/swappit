@@ -37,18 +37,37 @@ export class AddItem extends React.Component {
 		if (this.state.item.length === 0) {
 			this.getUser();
 		}
-	}
+    }
+    
+    handleDelete = () => {
+        let {_id} = this.state.item[0]
+        console.log(_id)
+        axios.delete(`${config.API_URL}/item/${_id}`, { withCredentials: true})
+            .then(() => {
+               // we will redirect here
+               console.log('delete')
+            })
+    }
 
 	render() {
 		if (this.state.item.length === 0) {
 			return <div>Loading...</div>;
 		} else {
 			const { firstName } = this.state.loggedInUser;
-			const itemName = this.state.item[0].name;
+            const itemName = this.state.item[0].name;
+            const itemId = this.state.item[0]._id
 			return (
 				<div>
-					Hey {firstName} ! What's up ?! <br /> Look at your{" "}
-					{itemName}
+					<h1>Hey {firstName} ! What's up ?! </h1> 
+                    <p>Look at your {itemName}</p>
+                    
+                    <Link to={`/item/${itemId}/edit`} class="btn" type="button">
+						<i class="fas fa-home">Edit</i>
+					</Link>
+
+                    <Link onClick={this.handleDelete} to={"/add-item"}class="btn" type="button">
+						<i class="fas fa-home">Delete</i>
+					</Link>
 				</div>
 			);
 		}
