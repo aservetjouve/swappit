@@ -80,6 +80,7 @@ export class AddItem extends React.Component {
 									value={name}
 									onChange={this.handleChange}
 									placeholder="The name here"
+                                    required
 								/>
 							</div>
 							<div class="form-group">
@@ -91,6 +92,7 @@ export class AddItem extends React.Component {
 									value={type}
 									onChange={this.handleChange}
 									placeholder="The type"
+                                    required
 								/>
 							</div>
 							<div class="form-group">
@@ -102,6 +104,7 @@ export class AddItem extends React.Component {
 									placeholder="Location"
 									value={swappableWith}
 									onChange={this.handleChange}
+                                    required
 								>
 									<option value="any">Anything</option>
 									<option value="small">Small</option>
@@ -118,6 +121,7 @@ export class AddItem extends React.Component {
 									value={aspect}
 									onChange={this.handleChange}
 									placeholder="It's aspect"
+                                    required
 								/>
 							</div>
 							<div class="sign-btn">

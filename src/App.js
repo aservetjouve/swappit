@@ -19,6 +19,7 @@ import SignIn from './pages/SignIn'
 import Home from './pages/Home'
 import Connexion from './pages/Connexion'
 import Profile from './pages/Profile'
+import Edit from './pages/EditItem'
 
 
 export default class App extends React.Component {
@@ -37,6 +38,8 @@ export default class App extends React.Component {
           <PrivateRoute exact path="/add-item" component={AddItem} />
           <PrivateRoute exact path="/profile" component={Profile} />
           <PrivateRoute exact path="/connections" component={Connexion}/>
+          <PrivateRoute exact path='/item/:id/edit' component={Edit}/>
+
 
         </Switch>
       </div>
