@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 
+
+// Style 
+import '../style/sign-in.css'
+
 class Login extends Component {
 	state = { email: "", password: "" };
 
@@ -20,42 +24,45 @@ class Login extends Component {
 		const { email, password } = this.state;
 
 		return (
-			<div>
-				<h1>Login</h1>
+			<main className="sign-in">
+				<h1 className="sign-in__header">Swappit.</h1>
 
-				<form onSubmit={this.handleFormSubmit}>
-					<div class="form-group">
-						<label>Email:</label>
+				<form onSubmit={this.handleFormSubmit} className="sign-in__form">
+					<div class="sign-in__info-section sign-in__info-section__email">
+						
 						<input
-							class="form-control"
+							className="sign-in__info-section__input"
 							type="email"
 							name="email"
 							value={email}
 							onChange={this.handleChange}
-							placeholder="Your name here"
 						/>
+						<label className="sign-in__info-section__label">
+						<span className="sign-in__info-section__content">Email</span></label>
 					</div>
 
-					<div class="form-group">
-						<label htmlFor="exampleInputPassword1">Password:</label>
+					<div class="sign-in__info-section
+					sign-in__info-section__password"
+					>
+						
 						<input
-							class="form-control"
+							className="sign-in__info-section__input"
 							type="password"
 							name="password"
 							value={password}
 							onChange={this.handleChange}
-							placeholder="And your password here"
 						/>
+						<label htmlFor="exampleInputPassword1" className="sign-in__info-section__label"><span className="sign-in__info-section__content">Password</span></label>
 					</div>
-					<div class="sign-btn">
+					<div>
 						<input
-							class="btn btn-primary"
+							className="sign-in__button"
 							type="submit"
-							value="Login"
+							value="LET'S SWAPP"
 						/>
 					</div>
 				</form>
-			</div>
+			</main>
 		);
 	}
 }
