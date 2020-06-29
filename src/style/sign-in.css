@@ -1,0 +1,122 @@
+.sign-in {
+    background-color: var(--dominant);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.sign-in__header {
+    color: var(--contrast);
+}
+
+.sign-in__form {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.562em;
+    z-index: 3px;
+    background-color: var(--contrast);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 100px;
+}
+
+.sign-in__info-section {
+    margin-top: 30px;
+}
+
+.sign-in__info-section__email,
+.sign-in__info-section__password {
+    width: 100%;
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.sign-in__info-section__input {
+    width: 100%;
+    height: 100%;
+    color: var(--dominant);
+    background-color: var(--contrast);
+    padding-top: 20px;
+    border: none;
+    outline: none;
+    font-size: 1.125em;
+}
+.sign-in__info-section__label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid var(--dominant);
+}
+
+.sign-in__info-section__label::after{
+content: "";
+position: absolute;
+left: 0px;
+bottom: -1px;
+height: 100%;
+width: 100%;
+border-bottom: 3px solid var(--main);
+transform: translateX(-100%);
+transition: all 0.3s ease;
+}
+
+.sign-in__info-section__content {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+    color: var(--dominant);
+}
+
+.sign-in__info-section__input:focus + .sign-in__info-section__label .sign-in__info-section__content,
+.sign-in__info-section__input:valid + .sign-in__info-section__label .sign-in__info-section__content {
+    transform: translateY(-155%);
+    font-size: 14px;
+    color: var(--main);
+}
+
+.sign-in__info-section__input:focus + .sign-in__info-section__label::after,
+.sign-in__info-section__input:valid + .sign-in__info-section__label::after {
+    transform: translateX(0%);
+}
+
+.sign-in__button {
+    width: 100%;
+    padding: 10px;
+    font-family: sans-serif;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: none;
+    color: var(--dominant);
+    background-color: var(--main);
+    font-size: 1.562em;
+    font-weight: 800;
+    outline: none;
+    font-family: "Montserrat";
+}
+
+.sign-in__button:hover{
+    background-color: var(--main);
+    transition: all 500ms ease;
+}
+
+@media (max-width: 480px){
+
+    .sign-in__form {
+        width: 100%;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+
+    .sign-in__info-section__input:focus + .sign-in__info-section__label::after,
+    .sign-in__info-section__input:valid + .sign-in__info-section__label::after{
+    display: none;
+    }
+}
