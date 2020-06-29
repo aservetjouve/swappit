@@ -31,16 +31,19 @@
     outline: none;
 }
 
-.navbar__btn--left {
-    color: var(--dominant);
-    background-color: var(--main);
+.navbar__btn--right {
+    background-color: var(--contrast);
 }
 
-.navbar__btn--right {
-    color: var(--main);
+.navbar__btn--left {
+    color: blue;
 }
 
 .navbar__btn__title {
     font-weight: 800;
     letter-spacing: 1.1px;
+}
+
+.navbar__private {
+    
 }

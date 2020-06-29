@@ -10,9 +10,9 @@ class Nav extends React.Component {
 		const { logout, isLoggedIn } = this.props;
 
 		return (
-			<nav class="navbar">
+			<>
 				{isLoggedIn ? (
-					<>
+					<nav class="navbar__private">
 						<Link to={"/profile"} class="btn" type="button">
 							<h6 class="fas fa-home">Profile</h6>
 						</Link>
@@ -29,9 +29,9 @@ class Nav extends React.Component {
 						>
 							Log out
 						</h6>
-					</>
+					</nav>
 				) : (
-					<>
+					<nav class="navbar">
 						<Link to="/signin" class="navbar__btn
 						navbar__btn--left" type="button">
 							{" "}
@@ -42,9 +42,9 @@ class Nav extends React.Component {
 							{" "}
 							<h6 class="navbar__btn__title"> Sign Up</h6>
 						</Link>
-					</>
+					</nav>
 				)}
-			</nav>
+			</>
 		);
 	}
 }

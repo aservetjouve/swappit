@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export class Home extends React.Component {
 	state = {
-        item: [],
+		item: [],
         userItem:[],
 		loggedInUser: null,
 	};
@@ -51,13 +51,16 @@ export class Home extends React.Component {
     }
 
     handleLike(val){
-        console.log('SEND', val)
-        let spe = document.getElementById("changing");
-        spe.classList.add('hidden')
-        const { _id } = this.state.userItem[0];
-        console.log(_id)
+		const { _id } = this.state.userItem[0];
         axios.post(`${config.API_URL}/transaction/${_id}/${val}`).then((res) => {
-            
+            let newItem = this.state.item.filter((item) => {
+				return item[0]._id !== val
+			})
+	  
+			this.setState({
+				item: newItem
+			})
+			console.log(this.state.item)
         })
     }
 
@@ -84,7 +87,8 @@ export class Home extends React.Component {
 									onClick={() => this.handleLike(_id)}
 									class="btn"
 									type="button"
-                                    to="/home"
+									
+                                    
 								>
 									<i  class="fas fa-home">LIKE</i>
 								</button>

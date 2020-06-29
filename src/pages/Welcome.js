@@ -3,9 +3,13 @@ import React from 'react';
 // Style 
 import '../style/welcome.css'
 
+// Component 
+import Nav from '../components/Nav'
+
 export default function Welcome(){    
     return (
         <>
+        <Nav/>
         <main className="welcome">
             <section className="welcome__section welcome__section--first">
                 <h2 className="welcome__section__title">Don't like it?</h2>
