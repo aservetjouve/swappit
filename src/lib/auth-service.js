@@ -7,7 +7,6 @@ class Auth {
 			baseURL: 'http://localhost:4000',
 			withCredentials: true,
         });
-        console.log('API is')
 	}
 
 	signup({ firstName, lastName, location, email, password }) {
@@ -26,8 +25,6 @@ class Auth {
 		return this.auth
 			.post("/auth/signin", { email, password })
 			.then(({ data }) => data);
-		//.catch(err => console.log("username taken"))
-		// .then((response) => response.data);
 	}
 
 	logout() {

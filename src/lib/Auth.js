@@ -58,8 +58,6 @@ class AuthProvider extends React.Component {
 		return authService
 			.signup({ firstName, lastName, location, email, password })
 			.then((user) => this.setState({ isLoggedIn: true, user }));
-		//.catch(err => console.log(err));
-		// catch in Signup.js to show message
 	};
 
 	signin = (email, password) => {
