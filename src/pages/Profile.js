@@ -5,6 +5,8 @@ import config from "../config";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import "../style/profile.css";
+
 export class AddItem extends React.Component {
 	state = {
 		item: [],
@@ -37,38 +39,73 @@ export class AddItem extends React.Component {
 		if (this.state.item.length === 0) {
 			this.getUser();
 		}
-    }
-    
-    handleDelete = () => {
-        let {_id} = this.state.item[0]
-        console.log(_id)
-        axios.delete(`${config.API_URL}/item/${_id}`, { withCredentials: true})
-            .then(() => {
-               // we will redirect here
-               console.log('delete')
-            })
-    }
+	}
+
+	handleDelete = () => {
+		let { _id } = this.state.item[0];
+		axios
+			.delete(`${config.API_URL}/item/${_id}`, { withCredentials: true })
+	};
 
 	render() {
+		const { logout } = this.props;
 		if (this.state.item.length === 0) {
-			return <div>Loading...</div>;
+			return (
+				<main className="profile__page">
+					<div className="wrap">
+						<div className="loading">
+							<div className="bounceball"></div>
+							<div className="text">LOADING...</div>
+						</div>
+					</div>
+				</main>
+			);
 		} else {
 			const { firstName } = this.state.loggedInUser;
-            const itemName = this.state.item[0].name;
-            const itemId = this.state.item[0]._id
+			const itemName = this.state.item[0].name;
+			const image = {
+				backgroundImage:  `url(${this.state.item[0].image})`
+			}
+			const itemId = this.state.item[0]._id;
 			return (
-				<div>
-					<h1>Hey {firstName} ! What's up ?! </h1> 
-                    <p>Look at your {itemName}</p>
-                    
-                    <Link to={`/item/${itemId}/edit`} class="btn" type="button">
-						<i class="fas fa-home">Edit</i>
-					</Link>
+				<main className="profile__page">
+					<h1 className="auth__header">Swappit.</h1>
+					<h2 className="header__floater profile__floater">PROFILE</h2>
+					<section className="profile__owner">
+						<div className='profile__pic'/>
+						<h2>Hey {firstName}!</h2>
+						<h6>Ready to swapp?</h6>
+					</section>
+						<section className="profile__item">
+							<div style={image}></div>
+							<h6>It's your {itemName}</h6>
 
-                    <Link onClick={this.handleDelete} to={"/add-item"}class="btn" type="button">
-						<i class="fas fa-home">Delete</i>
-					</Link>
-				</div>
+							<section className="profile__item_action">
+								<Link
+									to={`/item/${itemId}/edit`}
+									className="action"
+									type="button"
+								>
+									<i>Edit</i>
+								</Link>
+
+								<Link
+									onClick={this.handleDelete}
+									to={"/add-item"}
+									className="action"
+									type="button"
+								>
+									<i>Delete</i>
+								</Link>
+							</section>
+						</section>
+						<button to='/logout' className="button__img button__img__exit" onClick={logout}>
+            <img src="https://res.cloudinary.com/andysv/image/upload/v1593557659/Union_3_2x_lcr2d2.png" alt='arrow to go back to the menu'/>
+            </button>
+						<Link to='/home' className="button__img button__img__profile">
+            <img src="https://res.cloudinary.com/andysv/image/upload/v1593549904/arrow-left_2x_pgi5dr.png" alt='arrow to go back to the menu'/>
+            </Link>
+				</main>
 			);
 		}
 	}
