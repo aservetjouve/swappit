@@ -10,8 +10,10 @@ export default function Welcome(){
     return (
         <>
         <Nav/>
+        <h1 className="brand">Swappit</h1>
         <main className="welcome">
-            <section className="welcome__section welcome__section--first">
+            <section className="welcome__section">
+                <div className='welcome__loving'></div>
                 <h2 className="welcome__section__title">Don't like it?</h2>
                 <h2 className="welcome__section__title">Swapp it!</h2>
                 <p className="welcome__section_desc">Libero consequatur incidunt et consequatur. Sit et enim. Sint quaerat omnis et repudiandae unde sapiente magnam enim. </p>
@@ -22,6 +24,7 @@ export default function Welcome(){
                 <p className="welcome__section_desc">Aut id ut ut eius dolorem et. Sequi voluptates eos cum. Temporibus quam et dolores ut ut. Saepe est harum repudiandae non. Deleniti sapiente culpa. </p>
             </section>
             <section className="welcome__section welcome__section--last">
+                 <div className='welcome__ballet'></div>
                 <h2 className="welcome__section__title">It's simple.</h2>
                 <h2 className="welcome__section__title">It's free.</h2>
                 <p className="welcome__section_desc">
