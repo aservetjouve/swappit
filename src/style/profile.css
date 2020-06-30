@@ -1,0 +1,156 @@
+.auth__header {
+    color: var(--contrast);
+}
+
+.profile__page {
+    background-color:var(--dominant);
+    min-height: 100vh;
+    color: var(--contrast);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.profile__owner {
+    margin: 30px;
+    border: 1px solid var(--main);
+    border-radius: 10px;
+    padding: 7px;
+    width: 260px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile__pic {
+    background-image: url(https://res.cloudinary.com/andysv/image/upload/v1593554495/SprintingDoodle_dlaztm.png);
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background-position: center;       
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #F7F7F7;
+}
+
+.profile__owner > h6 {
+    text-align: right;
+}
+
+.profile__floater {
+    top: 135px
+}
+
+.profile__item {
+    margin-top: 30px;
+    background-color: var(--main);
+    border: none ;
+    border-radius: 10px;
+    width: 260px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile__item > div {
+    height: 150px;
+    width: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background-position: center;       
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #F7F7F7;
+}
+
+.profile__item h6 {
+    width: 100%;
+    
+    font-weight: 800;
+    padding-bottom: 10px;
+    margin-left: 30px;
+    font-weight: 400;
+}
+
+.profile__item_action {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    border-top: 2px dashed var(--dominant);
+    
+}
+
+.action {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.action:first-child {
+    border-right: 3px dotted var(--dominant);
+}
+
+.action:hover{
+    background-color: var(--main--light)
+}
+
+.logout__btn {
+    position: fixed;
+    bottom: 30px;
+    background-color: var(--main);
+    width: 40%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 5px 5px 0;
+}
+
+
+.profile__links {
+    width: 90%;
+    bottom: 30px;
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+}
+
+.profile__btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: var(--main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:  0 4px 5px var(--contrast);
+    
+}
+
+
+.profile__btn p{
+    color:  var(--contrast);
+    font-weight: 800;
+    
+}
+
+.button__img__profile {
+    right: 10px;
+    left: unset;
+    transform: rotate(180deg);
+}
+
+.button__img__exit{
+    background-color: unset;
+    border: none;
+}
+

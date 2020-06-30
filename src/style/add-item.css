@@ -1,0 +1,48 @@
+.edit__page {
+    background-color: var(--dominant);
+    min-height: 100vh;
+    padding-bottom: 20px;
+}
+
+.auth__header {
+    color: var(--contrast);
+}
+
+.edit__header {
+    font-weight: 800;
+    color: var(--main);
+}
+
+.edit__form {
+    margin: 30px;
+    border: 2px dotted var(--main);
+}
+
+.edit__section__title {
+    width: 100%;
+    background-color: var(--contrast);
+    color: var(--dominant);
+    margin-bottom: 0;
+}
+
+.edit__input {
+    width: 100%;
+    border-top: none;
+    border-color: var(--contrast);
+    border-width: 2px;
+    background-color: var(--dominant);
+    margin-top: 0;
+margin-bottom: 30px;
+    font-size: 1.5em;
+    color: var(--contrast);
+}
+
+.edit__button {
+    width: 100%;
+    height: 50px;
+    background-color: var(--main);
+    border: none;
+    font-size: 1.5em;
+    font-weight: 800;
+    margin-top: 20px;
+}

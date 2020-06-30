@@ -1,41 +1,67 @@
-.sign-in {
+.signin__page {
     background-color: var(--dominant);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.sign-in__header {
+.signup__page {
+    background-color: var(--dominant);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.auth__header {
     color: var(--contrast);
 }
 
-.sign-in__form {
+.auth__form {
     width: 50%;
     height: 70%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     font-size: 1.562em;
     z-index: 3px;
     background-color: var(--contrast);
     padding: 10px;
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 20px;
+    padding-bottom: 40px;
 }
 
-.sign-in__info-section {
+.auth__form--sign-in{
+    height: 80%;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+
+.auth__info-section {
     margin-top: 30px;
 }
 
-.sign-in__info-section__email,
-.sign-in__info-section__password {
+.auth__select {
+    background-color: var(--main);
+    border: none;
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.auth__info-section__email,
+.auth__info-section__password {
     width: 100%;
     position: relative;
     height: 50px;
     overflow: hidden;
 }
 
-.sign-in__info-section__input {
+.auth__info-section__input {
     width: 100%;
     height: 100%;
     color: var(--dominant);
@@ -45,7 +71,7 @@
     outline: none;
     font-size: 1.125em;
 }
-.sign-in__info-section__label {
+.auth__info-section__label {
     position: absolute;
     bottom: 0px;
     left: 0%;
@@ -55,7 +81,7 @@
     border-bottom: 1px solid var(--dominant);
 }
 
-.sign-in__info-section__label::after{
+.auth__info-section__label::after{
 content: "";
 position: absolute;
 left: 0px;
@@ -67,7 +93,7 @@ transform: translateX(-100%);
 transition: all 0.3s ease;
 }
 
-.sign-in__info-section__content {
+.auth__info-section__content {
     position: absolute;
     bottom: 5px;
     left: 0px;
@@ -75,19 +101,19 @@ transition: all 0.3s ease;
     color: var(--dominant);
 }
 
-.sign-in__info-section__input:focus + .sign-in__info-section__label .sign-in__info-section__content,
-.sign-in__info-section__input:valid + .sign-in__info-section__label .sign-in__info-section__content {
+.auth__info-section__input:focus + .auth__info-section__label .auth__info-section__content,
+.auth__info-section__input:valid + .auth__info-section__label .auth__info-section__content {
     transform: translateY(-155%);
     font-size: 14px;
     color: var(--main);
 }
 
-.sign-in__info-section__input:focus + .sign-in__info-section__label::after,
-.sign-in__info-section__input:valid + .sign-in__info-section__label::after {
+.auth__info-section__input:hover + .auth__info-section__label::after,
+.auth__info-section__input:hover + .auth__info-section__label::after {
     transform: translateX(0%);
 }
 
-.sign-in__button {
+.auth__button {
     width: 100%;
     padding: 10px;
     font-family: sans-serif;
@@ -102,21 +128,28 @@ transition: all 0.3s ease;
     font-family: "Montserrat";
 }
 
-.sign-in__button:hover{
-    background-color: var(--main);
-    transition: all 500ms ease;
+
+
+.switch__button {
+    text-decoration: underline var(--main);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.switch__button p {
+    color: var(--dominant);
 }
 
 @media (max-width: 480px){
 
-    .sign-in__form {
+    .auth__form {
         width: 100%;
-        border-radius: 20px;
+        border-radius: 15px;
         margin-bottom: 20px;
     }
 
-    .sign-in__info-section__input:focus + .sign-in__info-section__label::after,
-    .sign-in__info-section__input:valid + .sign-in__info-section__label::after{
+    .auth__info-section__input:focus + .auth__info-section__label::after,
+    .auth__info-section__input:valid + .auth__info-section__label::after{
     display: none;
     }
 }

@@ -1,0 +1,116 @@
+
+.connexion__page {
+    background-color: var(--dominant);
+    color: var(--contrast);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__floater{
+    position:fixed;
+    left:7px;
+    top:255px;
+    width:300px; 
+    margin-top:150px; 
+    transform: rotate(270deg);
+    transform-origin:0% 0%; 
+    color: var(--main);
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -ms-transform-origin:0% 0%; /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Safari and Chrome */
+    -webkit-transform-origin:0% 0%; /* Safari and Chrome */
+}
+
+.connect__searching{
+    background-image: url(https://res.cloudinary.com/andysv/image/upload/v1593551836/CoffeeDoddle_almozg.png);
+    height: 200px;
+    width: 200px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background-position: center;       
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #F7F7F7;
+
+}
+
+.home__searching__desc{
+    margin: 0;
+}
+
+.image__style{
+    height: 200px;
+    width: 200px;
+    margin: 20px auto;
+    border-radius: 50%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-color: var(--main--light);
+}
+
+
+
+.contact__card{
+    margin: 30px;
+    border: 2px solid var(--main);
+    height: 350px;
+}
+
+.little-note {
+    border-top: 2px dashed var(--dominant);
+    width: 100%;
+    padding-left: 30px;
+    padding-top: 30px;
+    margin-top: 30px;
+    font-weight: 400;
+}
+
+.button__img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: var(--main--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 110px;
+    left: 10px;
+}
+
+.button__img > img {
+    height: 30px;
+}
+
+.contact__card {
+    color: var(--dominant);
+    width: 260px;
+}
+
+.contact__card > h6, 
+.contact__card > p {
+    color: var(--dominant);
+    width: 100%;
+    padding-top: 20px
+}
+
+.contact__card > h6 {
+    border-bottom: 2px dashed var(--dominant);
+    padding-left: 30px;
+
+}
+
+.contact__card > p {
+    text-align: center;
+}
+
+.contact__card__email {
+    color: var(--contrast);
+    font-weight: 800;
+    text-decoration: var(--contrast) underline;
+    
+}
+

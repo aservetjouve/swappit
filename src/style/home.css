@@ -1,0 +1,144 @@
+.home__page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dominant);
+    min-height: 100vh;
+    color: var(--contrast);
+    padding-bottom: 100px;
+}
+
+.home__all-cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.home__searching {
+    background-image: url(https://res.cloudinary.com/andysv/image/upload/v1593541302/DoogieDoodle_wwdvh3.png);
+    height: 200px;
+    width: 200px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background-position: center;       
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #F7F7F7;
+}
+
+.home__card--copy {
+    border: 2px solid var(--main);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+}
+
+.pulse__anim{
+    animation: pulse 2s infinite;
+    
+}
+
+.home__searching__desc {
+    font-weight: 400;
+    margin-top: 20px ;
+    color: var(--dominant);
+}
+
+
+.auth__header {
+    color: var(--contrast);
+    width: 100%;
+}
+
+.home__card {
+    border: 2px solid var(--main);
+    width: 260px;
+    height: 388px;
+    margin: 20px 0 75px 0;
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--main);
+    z-index: 1;
+}
+
+
+
+.home__card__img {
+    border-radius: 50%;
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.home__card__button {
+    background-color: var(--dominant);
+    border: none;
+    outline: none;
+    color: var(--contrast);
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.home__links {
+    width: 100%;
+    bottom: 104px;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.home__btn {
+    height: 63px;
+    background-color: var(--main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.home__btn:first-child{
+    width: 35%;
+    color: (--contrast);
+}
+
+.home__btn:last-child {
+    width: 65%;
+    background-color: var(--dominant);
+    border: 3px solid var(--main);
+}
+
+
+.home__btn--left h6{
+    color:  var(--dominant);
+    font-weight: 800;
+}
+
+.home__btn--right h6{
+    color:  var(--main);
+    font-weight: 800;
+}
+
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+        box-shadow: 0 0 0 0 var(--dominant);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 30px var(--dominant--trans);
+    }
+
+    100% {
+        transform: scale(1);
+        
+    }
+}

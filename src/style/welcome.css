@@ -2,8 +2,13 @@ body {
     background-color: var(--contrast);
 }
 
+.brand {
+    color: var(--dominant);
+    margin: 30px;
+}
+
 .welcome {
-    margin-top: 150px;
+    margin-top: 30px;
     margin-bottom: 30px;
 
     display: flex;
@@ -19,9 +24,7 @@ body {
     color: var(--contrast);
 }
 
-.welcome__section--first{
-    margin-top: 214px;
-}
+
 
 .welcome__section--last {
     margin-bottom: 50px;
@@ -43,4 +46,22 @@ body {
     font-weight: 800;
     letter-spacing: 1.2px;
     text-align: center;
+}
+
+.welcome__loving{
+    width: 260px;
+    height: 195px;
+    background-image: var(--loving);
+    background-position: center;
+    background-size: cover;
+    margin: 20px auto;
+}
+
+.welcome__ballet {
+    width: 260px;
+    height: 195px;
+    background-image: var(--ballet);
+    background-position: center;
+    background-size: cover;
+    margin: -10px auto 20px auto;
 }
