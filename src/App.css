@@ -24,7 +24,10 @@ a:visited{
     --main: #F09325;
     --main--light: #F0BF84;
     --dominant: #F7F7F7;
+    --dominant--trans: rgba(247, 247, 247, 30%);
     --contrast: #0E0E0E;
+    --loving: url('https://res.cloudinary.com/andysv/image/upload/v1593558072/LovingDoodle_vie7uv.png');
+    --ballet: url('https://res.cloudinary.com/andysv/image/upload/v1593558072/BalletDoodle_reeymi.png');
   }
 }
 
@@ -33,8 +36,19 @@ a:visited{
     --main: #F09325;
     --main--light: #F0BF84;
     --dominant: #0E0E0E;
+    --dominant--trans: rgba(14, 14, 14, 30%);
     --contrast: #F7F7F7;
+    --loving: url('https://res.cloudinary.com/andysv/image/upload/v1593558093/LovingDoodle_lk6zcc.png');
+    --ballet: url('https://res.cloudinary.com/andysv/image/upload/v1593558093/BalletDoodle_bi5noo.png');
   }
+}
+
+:root {
+  --width: 30px;
+  --height: 30px;
+  --bounce_height: 60px;
+
+  
 }
 
 /*====================================*/
@@ -71,5 +85,56 @@ h6 {
   font-weight: 400;
 }
 
+/**/
 
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.text {
+  color: var(--main);
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.bounceball {
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  width: var(--width);
+  margin-right: 10px
+  
+}
+
+.bounceball:before {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 0;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 50%;
+  background-color: var(--main);
+  transform-origin: 50%;
+  animation: bounce 500ms alternate infinite ease;
+}
+
+@keyframes bounce {
+  0% {
+    top: var(--bounce_height);
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: var(--height);
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
