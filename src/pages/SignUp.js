@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 
+import { Link } from "react-router-dom";
+
+// Style 
+import '../style/auth.css'
+
 class Signup extends Component {
 	state = {
         firstName: "", 
@@ -8,7 +13,6 @@ class Signup extends Component {
         location: "",
         email: "",
 		password: "",
-		errorMessage: "",
 	};
 
 	handleFormSubmit = (event) => {
@@ -24,10 +28,6 @@ class Signup extends Component {
 		this.props
 			.signup(firstName, lastName, location, email, password)
 			.then((res) => console.log(res))
-			.catch((err) => {
-				// FIX TO CHANGE DEPENDING ON ERROR MESSAGE
-				this.setState({ errorMessage: "Email already taken" });
-			});
 	};
 
 	handleChange = (event) => {
@@ -41,76 +41,87 @@ class Signup extends Component {
             lastName,
             location,
             email,
-			password,
-			errorMessage,
+			password
 		} = this.state;
 		return (
-			<div>
-				<h1>Sign Up</h1>
+			<main className="signup__page">
+				<Link to="/"><h1 className="auth__header">Swappit.</h1></Link>
 
-				<form onSubmit={this.handleFormSubmit}>
-					<div class="form-group">
-						<label>First Name:</label>
+				<form onSubmit={this.handleFormSubmit}
+				className="auth__form">
+				
+					<div className="auth__info-section 
+					auth__info-section__email">
 						<input
-							class="form-control"
+							className="auth__info-section__input"
 							type="text"
 							name="firstName"
 							value={firstName}
 							onChange={this.handleChange}
-							placeholder="Your name here"
 						/>
+						<label className="auth__info-section__label">
+						<span className="auth__info-section__content">First Name</span></label>
 					</div>
-					<div class="form-group">
-						<label>Last Name:</label>
+					
+					<div className="auth__info-section 
+					auth__info-section__email">
 						<input
-							class="form-control"
+							className="auth__info-section__input"
 							type="text"
 							name="lastName"
 							value={lastName}
 							onChange={this.handleChange}
-							placeholder="Your name here"
 						/>
+						<label className="auth__info-section__label">
+						<span className="auth__info-section__content">Last Name</span></label>
 					</div>
-					<div class="form-group">
-                        <label>Location</label><br/>
-						<select id="location" name="location" placeholder="Location" value={location} onChange={this.handleChange}>
+
+					<div className="auth__info-section">
+						<select id="location" name="location" placeholder="Location" value={location} onChange={this.handleChange}
+						className="auth__select">
                             <option value="Paris">Paris</option>
                             <option value="Berlin">Berlin</option>
                             <option value="Miami">Miami</option>
+							<option value="Lisbon">Lisbon</option>
+							<option value="Amsterdam">Amsterdam</option>
                         </select>
 					</div>
-					<div class="form-group">
-						<label>Email:</label>
-						<input
-							class="form-control"
+					
+					<div className="auth__info-section auth__info-section__email">
+					<input
+							className="auth__info-section__input"
 							type="email"
 							name="email"
 							value={email}
 							onChange={this.handleChange}
-							placeholder="Your location here"
 						/>
-						<span>{errorMessage}</span>
+						<label className="auth__info-section__label">
+						<span className="auth__info-section__content">Email</span></label>
 					</div>
-					<div class="form-group">
-						<label>Password:</label>
-						<input
-							class="form-control"
+					<div className="auth__info-section
+					auth__info-section__password">
+						
+					<input
+							className="auth__info-section__input"
 							type="password"
 							name="password"
 							value={password}
 							onChange={this.handleChange}
-							placeholder="And your password here"
 						/>
+						<label htmlFor="password" className="auth__info-section__label"><span className="auth__info-section__content">Password</span></label>
 					</div>
-					<div class="sign-btn">
+					<div>
 						<input
-							class="btn btn-primary"
+							className="auth__button"
 							type="submit"
 							value="Signup"
 						/>
+						<Link to='/signin' className="switch__button">
+							<p>Oh! You meant Signin?</p>
+						</Link>
 					</div>
 				</form>
-			</div>
+			</main>
 		);
 	}
 }
