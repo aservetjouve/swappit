@@ -5,6 +5,9 @@ import config from "../config";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Style 
+import '../style/connexion.css'
+
 export class Connexion extends React.Component {
 	state = {
 		itemActive: [],
@@ -68,6 +71,7 @@ export class Connexion extends React.Component {
 							});
 							Object.keys(
 								this.state.itemOther.map((key) => {
+                                    
 									let { owner } = key;
 									axios
 										.get(
@@ -85,7 +89,8 @@ export class Connexion extends React.Component {
 													terminated: true,
 												});
 											}, 1000);
-										});
+                                        });
+                                    return ' '
 								})
 							);
 						});
@@ -117,7 +122,8 @@ export class Connexion extends React.Component {
 													terminated: true,
 												});
 											}, 1000);
-										});
+                                        });
+                                    return ''
 								})
 							);
 						});
@@ -133,47 +139,64 @@ export class Connexion extends React.Component {
 	}
 
 	render() {
+        
 		if (this.state.terminated === false) {
-			return <h1>NO CONNEXION YET</h1>;
+			return (<main className='connexion__page'>
+            <h1 className="auth__header">Swappit.</h1>
+            <h2 className="header__floater">CONNECTIONS</h2>
+            <div className="home__card">
+						<div className="connect__searching"></div>
+						<h6 className="home__searching__desc">It did not match </h6>
+                        <p className="home__searching__desc little-note">No worries, <br/> You'll find the good one</p>
+			</div>
+            <Link to='/home' className="button__img">
+            <img alt='arrow to go back home'src="https://res.cloudinary.com/andysv/image/upload/v1593549904/arrow-left_2x_pgi5dr.png"/>
+            </Link>
+            </main>)
 		} else {
 			let itemOther;
 			let otherUser;
-
-			const { firstName } = this.state.loggedInUser;
-            const itemName = this.state.itemActive[0].name;
-            console.log(itemName)
 			return (
-				<>
+				<main className='connexion__page'>
+                <h1 className="auth__header">Swappit.</h1>
+                <h2 className="header__floater">CONNECTIONS</h2>
+                <section className='home__all-cards'>
 					{
 						this.state.otherUser.map((key, i, arr) => {
+
 							if (i < (this.state.otherUser.length/2)) {
 								otherUser = arr[i].firstName;
 								itemOther = this.state.itemOther[i].name;
                                 let contact = arr[i].email
+                                let image = {
+                                backgroundImage: `url(${this.state.itemOther[i].image})`}
 								return (
-									<h1>
-										Contact {otherUser} for the {itemOther} here {contact}
-									</h1>
+                                    <section className='home__card contact__card'>
+                                    <div className='image__style' style={image}></div>
+									<h6>For the {itemOther} </h6>
+                                    <p>Contact {otherUser} <a className='contact__card__email' href={'mailto:'+contact}>here!</a></p>
+                                    </section>
 								);
 							} else if (this.state.otherUser.length === 1){
                                 otherUser = arr[0].firstName;
 								itemOther = this.state.itemOther[0].name;
+                                let contact = arr[0].email
 								return (
-									<h1>
+									<h6>
 										Contact {otherUser} for the {itemOther}
-									</h1>
+                                        here {contact}
+									</h6>
 								);
                             }
+                            return ''
 						})
 					}
-				</>
-			);
-
-			return (
-				<h1>
-					{firstName}, {otherUser} wants to swap your {itemName}{" "}
-					against a {itemOther}
-				</h1>
+                    
+                    <Link to='/home' className="button__img">
+            <img alt='arrow to go back home' src="https://res.cloudinary.com/andysv/image/upload/v1593549904/arrow-left_2x_pgi5dr.png"/>
+            </Link>
+            </section>
+				</main>
 			);
 		}
 	}
