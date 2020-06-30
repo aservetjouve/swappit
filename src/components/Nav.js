@@ -12,35 +12,19 @@ class Nav extends React.Component {
 		return (
 			<>
 				{isLoggedIn ? (
-					<nav class="navbar__private">
-						<Link to={"/profile"} class="btn" type="button">
-							<h6 class="fas fa-home">Profile</h6>
-						</Link>
-						<Link to={"/home"} class="btn" type="button">
-							<h6 class="fas fa-home">Home</h6>
-						</Link>
-						<Link to={"/connections"} class="btn" type="button">
-							<h6 class="fas fa-home">Connections</h6>
-						</Link>
-						<h6
-							class="fas fa-sign-out-alt btn btn-outline-danger"
-							type="button"
-							onClick={logout}
-						>
-							Log out
-						</h6>
-					</nav>
+					<>
+					</>
 				) : (
-					<nav class="navbar">
-						<Link to="/signin" class="navbar__btn
+					<nav className="navbar">
+						<Link to="/signin" className="navbar__btn
 						navbar__btn--left" type="button">
 							{" "}
-							<h6 class="navbar__btn__title">Sign In</h6>
+							<h6 className="navbar__btn__title">Sign In</h6>
 						</Link>
-						<Link to="/signup" class="navbar__btn
+						<Link to="/signup" className="navbar__btn
 						navbar__btn--right" type="button">
 							{" "}
-							<h6 class="navbar__btn__title"> Sign Up</h6>
+							<h6 className="navbar__btn__title"> Sign Up</h6>
 						</Link>
 					</nav>
 				)}

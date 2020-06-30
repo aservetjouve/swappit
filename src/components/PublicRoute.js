@@ -7,7 +7,7 @@ function PublicRoute({ component: Component, isLoggedIn, ...rest }) {
 		<Route
 			{...rest}
 			render={function (props) {
-				if (isLoggedIn) return <Redirect to="/" />;
+				if (isLoggedIn) return <Redirect to="/home" />;
 				else if (!isLoggedIn) return <Component {...props} />;
 			}}
 		/>

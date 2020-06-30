@@ -10,7 +10,6 @@ import PrivateRoute from "./components/PrivateRoute"
 
 /* Components
 ===========*/
-import Nav from './components/Nav'
 import Welcome from './pages/Welcome'
 import SignUp from './pages/SignUp'
 import AddItem from './pages/AddItem'
