@@ -3,7 +3,9 @@ import { withAuth } from "../lib/Auth";
 import config from '../config';
 
 import axios from "axios";
-import { Link } from "react-router-dom";
+
+// Style 
+import '../style/add-item.css'
 
 export class AddItem extends React.Component {
 			state = {
@@ -20,7 +22,6 @@ export class AddItem extends React.Component {
 						this.setState({
 							loggedInUser: res.data,
                         });
-                        console.log('USER IS ', this.loggedInUser)
 					})
 			}
 
@@ -42,98 +43,130 @@ export class AddItem extends React.Component {
 				let aspect = event.target.aspect.value;
 				let swappableWith = event.target.swappableWith.value;
 
-				axios
-					.post(
-						`${config.API_URL}/item/add`,
-						{
-							name: name,
-							type: type,
-							aspect: aspect,
-                            swappableWith: swappableWith,
-						},
-						{ withCredentials: true }
-					)
+				let myImage = event.target.image.files[0]
+
+				let uploadData = new FormData();
+					uploadData.append('imageUrl', myImage)
+				
+				axios.post(`${config.API_URL}/upload`, uploadData)
 					.then((res) => {
-						this.setState(
-							{
-								item: [...this.state.item, res.data],
-							}, () => {
-                                this.props.history.push('/home')
-                            })
-			
-					})
+						
+						let {secure_url} = res.data
+						if (secure_url.length > 0){
+							axios
+							.post(
+								`${config.API_URL}/item/add`,
+								{
+									name: name,
+									type: type,
+									aspect: aspect,
+									swappableWith: swappableWith,
+									image: secure_url
+								},
+								{ withCredentials: true }
+							)
+							.then((res) => {
+								this.setState(
+									{
+										item: [...this.state.item, res.data],
+									}, () => {
+										this.props.history.push('/home')
+									})
+					
+							})
+							}
+						})
+						
+
+				
 			};
 
 			render() {
-				const { name, type, aspect, swappableWith } = this.state;
+				const { name, type, aspect, swappableWith, image} = this.state;
 				return (
-					<div>
-						<h1>Let's add your item</h1>
+					<main>
+						<h1>Add your item</h1>
 
-						<form onSubmit={this.handleAddItem}>
-							<div class="form-group">
-								<label>Name of your object:</label>
+						<form onSubmit={this.handleAddItem} className="edit__form">
+							<div>
+							<h6 className="edit__section__title">The Name</h6>
 								<input
-									class="form-control"
+									className="edit__input"
 									type="text"
 									name="name"
 									value={name}
 									onChange={this.handleChange}
-									placeholder="The name here"
                                     required
 								/>
 							</div>
-							<div class="form-group">
-								<label>Last Name:</label>
-								<input
-									class="form-control"
-									type="text"
+							<div className="form-group">
+								<h6 className="edit__section__title">The Size</h6>
+								<select
+									id="type"
 									name="type"
+                                    autoComplete='off'
 									value={type}
-									onChange={this.handleChange}
-									placeholder="The type"
-                                    required
-								/>
+                                    onChange={this.handleChange}
+                                    className="edit__input"
+								>
+									<option value="small">Small | You can carry it in a bag</option>
+									<option value="medium">Medium | You will need your two hands</option>
+									<option value="large">Large | You need two people to move it</option>
+								</select>
 							</div>
-							<div class="form-group">
-								<label>To Swapp with</label>
-								<br />
+							<div className="form-group">
+								<h6 className="edit__section__title">To Swapp with</h6>
 								<select
 									id="swappableWith"
 									name="swappableWith"
-									placeholder="Location"
+                                    autoComplete='off'
 									value={swappableWith}
-									onChange={this.handleChange}
-                                    required
+                                    onChange={this.handleChange}
+                                    className="edit__input"
 								>
-									<option value="any">Anything</option>
-									<option value="small">Small</option>
-									<option value="medium">Medium</option>
-									<option value="large">Large</option>
+									<option value="any">Anything - Really</option>
+									<option value="small">Something small - Don't have much room</option>
+									<option value="medium"> Something not too big but not too small - I am picky</option>
+									<option value="large">Something big - It's never too big</option>
 								</select>
 							</div>
-							<div class="form-group">
-								<label>Email:</label>
-								<input
-									class="form-control"
-									type="text"
+							<div className="form-group">
+								<h6 className="edit__section__title">How is it?</h6>
+								<select
+									id="aspect"
 									name="aspect"
+                                    autoComplete='off'
 									value={aspect}
+                                    onChange={this.handleChange}
+                                    className="edit__input"
+								>
+									<option value="new">Brand New</option>
+									<option value="small-damage">Teeny Tiny Scratches </option>
+									<option value="medium-damage">I dropped it several times</option>
+									<option value="big-damage">It's broken, but looking good</option>
+								</select>
+							</div>
+							<div className="form-group">
+								<label>Image</label>
+								<input
+									className="form-control"
+									type="file"
+									name="image"
+									value={image}
 									onChange={this.handleChange}
-									placeholder="It's aspect"
                                     required
 								/>
 							</div>
-							<div class="sign-btn">
-								<input
-									class="btn btn-primary"
+							<div className="sign-btn">
+							<input
+									className="edit__button"
 									type="submit"
-									value="Signup"
-                                    to="/"
+									value="Ready?"
+                                    to="/home"
 								/>
 							</div>
 						</form>
-					</div>
+					</main>
 				);
 			}
 		}
