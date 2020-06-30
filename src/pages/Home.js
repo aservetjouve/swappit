@@ -1,9 +1,13 @@
 import React from "react";
 import { withAuth } from "../lib/Auth";
 import config from "../config";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
-import { Link } from "react-router-dom";
+
+// Style 
+import '../style/home.css'
+
 
 export class Home extends React.Component {
 	state = {
@@ -60,7 +64,6 @@ export class Home extends React.Component {
 			this.setState({
 				item: newItem
 			})
-			console.log(this.state.item)
         })
     }
 
@@ -72,32 +75,98 @@ export class Home extends React.Component {
     
 	render() {
 		if (this.state.item.length === 0) {
-			return <div>WAITING FOR NEW CONNECTIONS</div>;
+			return (
+				<main className="home__page">
+					<h1 className="auth__header">Swappit.</h1>
+					<div className="home__card">
+						<div className="home__searching"></div>
+						<div className="home__card--copy pulse__anim"></div>
+						<h6 className="home__searching__desc">We are looking for new matches </h6>
+					</div>
+
+					<section className="home__links">
+						<Link
+							to="/profile"
+							className="home__btn home__btn--left"
+						>
+							<h6>Profile</h6>
+						</Link>
+						<Link
+							to="/connections"
+							className="home__btn home__btn--right"
+						>
+							<h6>Connections</h6>
+						</Link>
+					</section>
+				</main>
+			);
 		} else {
                 return(
-                    <>
-                    { this.state.item.map((itm, i, arr)=> {
+                    <main className="home__page">
+					
+					<h1 className="auth__header">Swappit.</h1>
+                    <section className="home__all-cards">
+					{ this.state.item.map((itm, i, arr)=> {
                         let {name} = arr[i][0]
                         let {_id} = arr[i][0]
-                        console.log('inside',_id)
+						let {aspect} = arr[i][0]
+						let {image} = arr[i][0]
+						if (image === undefined) {
+							let random = Math.floor(Math.random()*3)
+							switch (random ) {
+								case 0: 
+								image = 'https://res.cloudinary.com/andysv/image/upload/v1593541496/IceCreamDoodle_wejq6z.png'
+								break;
+								case 1: 
+								image = 'https://res.cloudinary.com/andysv/image/upload/v1593541730/BikiniDoodle_hw1ypu.png'
+								break;
+								case 2: 
+								image = 'https://res.cloudinary.com/andysv/image/upload/v1593541731/ReadingDoodle_r871u6.png'
+								break;
+								case 3: 
+								image = 'https://res.cloudinary.com/andysv/image/upload/v1593541731/SitReadingDoodle_szmncj.png'
+								break;
+								default : 
+								image = 'https://res.cloudinary.com/andysv/image/upload/v1593541731/ReadingSideDoodle_ilwbjc.png'
+							}
+							
+						}
+						let myStyle = {
+							backgroundImage: `url(${image})`,
+							height: '200px',
+    						width: '200px',
+    						margin: '20px auto',
+							borderRadius: '50%',
+							backgroundPosition: 'center',
+							backgroundSize: 'cover',
+							backgroundRepeat: 'no-repeat',
+							backgroundColor: 'var(--main--light)'
+						}
                         return (
-							<div key={i} id='changing'>
-								<h2>bjr {name}{i}</h2>
+							<div key={i} className="home__card">
+								<div style={myStyle}></div>
+								<h4>{name}</h4>
+								<p>It's {aspect}</p>
 								<button
 									onClick={() => this.handleLike(_id)}
-									class="btn"
+									className="home__card__button"
 									type="button"
 									
                                     
 								>
-									<i  class="fas fa-home">LIKE</i>
+									<p>LIKE</p>
 								</button>
 							</div>
 						);
                         
                     }) 
                     }
-                    </>
+					<section className="home__links">
+					<Link to='/profile' className="home__btn home__btn--left"><h6>Profile</h6></Link>
+					<Link to='/connections' className="home__btn home__btn--right"><h6>Connections</h6></Link>
+					</section>
+					</section>
+                    </main>
                 )
 		}
 	}
