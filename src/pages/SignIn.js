@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { withAuth } from "./../lib/Auth";
 
+import { Link } from "react-router-dom";
+
 
 // Style 
-import '../style/sign-in.css'
+import '../style/auth.css'
 
 class Login extends Component {
 	state = { email: "", password: "" };
@@ -24,42 +26,45 @@ class Login extends Component {
 		const { email, password } = this.state;
 
 		return (
-			<main className="sign-in">
-				<h1 className="sign-in__header">Swappit.</h1>
+			<main className="signin__page">
+			<Link to="/"><h1 className="auth__header">Swappit.</h1></Link>
 
-				<form onSubmit={this.handleFormSubmit} className="sign-in__form">
-					<div class="sign-in__info-section sign-in__info-section__email">
+				<form onSubmit={this.handleFormSubmit} className="auth__form auth__form--sign-in">
+					<div className="auth__info-section auth__info-section__email">
 						
 						<input
-							className="sign-in__info-section__input"
+							className="auth__info-section__input"
 							type="email"
 							name="email"
 							value={email}
 							onChange={this.handleChange}
 						/>
-						<label className="sign-in__info-section__label">
-						<span className="sign-in__info-section__content">Email</span></label>
+						<label className="auth__info-section__label">
+						<span className="auth__info-section__content">Email</span></label>
 					</div>
 
-					<div class="sign-in__info-section
-					sign-in__info-section__password"
+					<div className="auth__info-section
+					auth__info-section__password"
 					>
 						
 						<input
-							className="sign-in__info-section__input"
+							className="auth__info-section__input"
 							type="password"
 							name="password"
 							value={password}
 							onChange={this.handleChange}
 						/>
-						<label htmlFor="exampleInputPassword1" className="sign-in__info-section__label"><span className="sign-in__info-section__content">Password</span></label>
+						<label htmlFor="password" className="auth__info-section__label"><span className="auth__info-section__content">Password</span></label>
 					</div>
 					<div>
 						<input
-							className="sign-in__button"
+							className="auth__button"
 							type="submit"
 							value="LET'S SWAPP"
 						/>
+						<Link to='/signup' className="switch__button">
+							<p>Oh! You meant Signup?</p>
+						</Link>
 					</div>
 				</form>
 			</main>
