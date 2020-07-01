@@ -64,7 +64,9 @@ export class AddItem extends React.Component {
 			const { firstName } = this.state.loggedInUser;
 			const itemName = this.state.item[0].name;
 			const image = {
-				backgroundImage:  `url(${this.state.item[0].image})`
+				backgroundImage:  `url(${this.state.item[0].image})`,
+				backgroundPosition: 'center',
+    			backgroundSize: 'cover'
 			}
 			const itemId = this.state.item[0]._id;
 			return (
@@ -77,7 +79,7 @@ export class AddItem extends React.Component {
 						<h6>Ready to swapp?</h6>
 					</section>
 						<section className="profile__item">
-							<div style={image}></div>
+							<div className="item__image"style={image}></div>
 							<h6>It's your {itemName}</h6>
 
 							<section className="profile__item_action">

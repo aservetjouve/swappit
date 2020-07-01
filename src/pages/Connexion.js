@@ -144,11 +144,13 @@ export class Connexion extends React.Component {
 			return (<main className='connexion__page'>
             <h1 className="auth__header">Swappit.</h1>
             <h2 className="header__floater">CONNECTIONS</h2>
-            <div className="home__card">
-						<div className="connect__searching"></div>
-						<h6 className="home__searching__desc">It did not match </h6>
-                        <p className="home__searching__desc little-note">No worries, <br/> You'll find the good one</p>
-			</div>
+			<div className="wrap">
+						<div className="loading">
+							<div className="bounceball"></div>
+							<br></br>
+							<div className="text">Waiting for a match</div>
+						</div>
+					</div>
             <Link to='/home' className="button__img">
             <img alt='arrow to go back home'src="https://res.cloudinary.com/andysv/image/upload/v1593549904/arrow-left_2x_pgi5dr.png"/>
             </Link>
@@ -156,10 +158,16 @@ export class Connexion extends React.Component {
 		} else {
 			let itemOther;
 			let otherUser;
+			let count = Math.ceil(this.state.otherUser.length/2)
+			let grammar = " "
+			if (count > 1){
+				grammar = "s "
+			}
 			return (
 				<main className='connexion__page'>
                 <h1 className="auth__header">Swappit.</h1>
                 <h2 className="header__floater">CONNECTIONS</h2>
+				<h6>{count} connection{grammar}!</h6>
                 <section className='home__all-cards'>
 					{
 						this.state.otherUser.map((key, i, arr) => {
@@ -171,7 +179,7 @@ export class Connexion extends React.Component {
                                 let image = {
                                 backgroundImage: `url(${this.state.itemOther[i].image})`}
 								return (
-                                    <section className='home__card contact__card'>
+                                    <section className='contact__card'>
                                     <div className='image__style' style={image}></div>
 									<h6>For the {itemOther} </h6>
                                     <p>Contact {otherUser} <a className='contact__card__email' href={'mailto:'+contact}>here!</a></p>
