@@ -57,6 +57,16 @@
     margin: 30px;
     border: 2px solid var(--main);
     height: 350px;
+    border: 2px solid var(--main);
+    width: 260px;
+    height: 388px;
+    margin: 20px 0 75px 0;
+    display: flex;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--main);
+    z-index: 1;
 }
 
 .little-note {

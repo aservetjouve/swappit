@@ -37,6 +37,10 @@
     background-color: #F7F7F7;
 }
 
+.item__image {
+    
+}
+
 .profile__owner > h6 {
     text-align: right;
 }

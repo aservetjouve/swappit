@@ -57,9 +57,11 @@
 .home__card {
     border: 2px solid var(--main);
     width: 260px;
-    height: 388px;
+    height: 400px;
     margin: 20px 0 75px 0;
     display: flex;
+    top: 80px;
+    position: absolute;
     border-radius: 15px;
     flex-direction: column;
     align-items: center;
@@ -78,17 +80,20 @@
 }
 
 .home__card__button {
-    background-color: var(--dominant);
     border: none;
     outline: none;
-    color: var(--contrast);
+    color: var(--dominant);
     font-weight: 800;
     margin-top: 10px;
+    background-color: var(--main--light);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 
 .home__links {
     width: 100%;
-    bottom: 104px;
+    bottom: 50px;
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -102,6 +107,13 @@
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
+}
+
+.like-dislike__btn {
+    width: 100%;
+    display: flex;
+    margin: 30px;
+    justify-content: space-evenly;
 }
 
 .home__btn:first-child{
