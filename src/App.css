@@ -94,15 +94,20 @@ h6 {
   transform: translate(-50%, -50%);
 }
 
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
 .text {
   color: var(--main);
-  display: inline-block;
   margin-left: 5px;
 }
 
 .bounceball {
   position: relative;
-  display: inline-block;
   height: 37px;
   width: var(--width);
   margin-right: 10px
