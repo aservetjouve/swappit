@@ -4,7 +4,7 @@ require ('dotenv').config()
 class Auth {
 	constructor() {
 		this.auth = axios.create({
-			baseURL: 'http://localhost:4000',
+			baseURL: 'https://swapp-it.herokuapp.com',
 			withCredentials: true,
         });
 	}
